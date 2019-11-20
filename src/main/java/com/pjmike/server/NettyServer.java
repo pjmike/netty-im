@@ -23,12 +23,14 @@ public class NettyServer {
     }
 
     public void start() {
-        NioEventLoopGroup boss = new NioEventLoopGroup(1);
+        NioEventLoopGroup boss = new NioEventLoopGroup();
         NioEventLoopGroup worker = new NioEventLoopGroup();
         ServerBootstrap bootstrap = new ServerBootstrap();
         bootstrap.group(boss, worker)
                 .channel(NioServerSocketChannel.class)
-                .option(ChannelOption.TCP_NODELAY, true)
+                .childOption(ChannelOption.TCP_NODELAY, true)
+                //最大的等待连接数量，默认是128，可以调整大一点为1024
+                //使用方式: javaChannel().bind(localAddress,config.getBacklog());
                 .option(ChannelOption.SO_BACKLOG, 1024)
                 .handler(new LoggingHandler(LogLevel.INFO))
                 .childHandler(new ServerHandlerInitializer());
