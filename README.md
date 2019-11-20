@@ -15,13 +15,3 @@
 ## 快速启动
 - 服务端启动：执行ServerApplication
 - 客户端启动：执行ClientApplication
-
-```java
-22:40:42.765 [main] INFO com.pjmike.client.ClientApplication - 启动客户端成功,开启控制台线程...
-Usage: <cmd> [options]
-	<login>	[启动登录模式]
-	<chat>	[启动单聊模式]
-	<createGroup>	[创建群聊]
-	<groupChat>	[发送群消息]
-22:40:43.158 [nioEventLoopGroup-2-1] INFO com.pjmike.client.NettyClient - 连接服务端成功
-```
